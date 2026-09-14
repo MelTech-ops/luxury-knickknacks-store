@@ -155,9 +155,11 @@ p { margin: 0 0 1em; }
   gap: 8px;
 }
 .logo-bow {
-  width: 22px; height: auto;
+  width: 24px; height: 16px;
   flex-shrink: 0;
-  color: var(--wine);
+  display: block;
+  color: var(--wine-bright);
+  overflow: visible;
 }
 .logo span {
   font-family: var(--font-body);
