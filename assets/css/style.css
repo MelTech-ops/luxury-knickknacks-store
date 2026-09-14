@@ -337,6 +337,7 @@ p { margin: 0 0 1em; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   border: 1px solid var(--line);
 }
+.offer-media.tall { aspect-ratio: 3/4; }
 .offer-media.placeholder span {
   font-family: var(--font-hand, var(--font-body));
   font-size: .74rem;
