@@ -151,8 +151,19 @@ p { margin: 0 0 1em; }
   letter-spacing: .02em;
   font-weight: 500;
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  align-items: center;
+  gap: 12px;
+}
+.logo-badge {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--wine);
+  letter-spacing: 0;
 }
 .logo span {
   font-family: var(--font-body);
