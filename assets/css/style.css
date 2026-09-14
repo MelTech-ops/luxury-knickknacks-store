@@ -334,7 +334,7 @@ p { margin: 0 0 1em; }
 }
 .offer-card:hover .offer-media img { transform: scale(1.04); }
 .offer-media.placeholder {
-  display: flex; align-items: center; justify-content: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
   border: 1px solid var(--line);
 }
 .offer-media.placeholder span {
@@ -459,6 +459,62 @@ p { margin: 0 0 1em; }
 }
 .social-card .handle { font-family: var(--font-head); font-size: 1.3rem; margin-bottom: 6px; }
 .social-card p { color: var(--gray); font-size: .92rem; }
+
+/* =========== Testimonials (Satisfied Clients page) =========== */
+.testimonial-card {
+  border: 1px solid var(--line);
+  background: var(--cream);
+  padding: 40px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.testimonial-card .quote-mark {
+  font-family: var(--font-head);
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--wine);
+  margin-bottom: 10px;
+}
+.testimonial-card .stars {
+  letter-spacing: .12em;
+  color: var(--gray-light);
+  font-size: .85rem;
+  margin-bottom: 16px;
+}
+.testimonial-card p.quote-text {
+  color: var(--gray-light);
+  font-style: italic;
+  font-weight: 300;
+  font-size: .95rem;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+.testimonial-card .client-name {
+  font-family: var(--font-head);
+  font-size: .95rem;
+  color: var(--gray-light);
+  letter-spacing: .02em;
+}
+.testimonial-card .client-name small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.offer-media.placeholder .play-icon {
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid var(--gray-light);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px; font-size: .8rem; color: var(--gray-light);
+  padding-left: 3px;
+}
 
 /* =========== Page hero (interior pages) =========== */
 .page-hero {
