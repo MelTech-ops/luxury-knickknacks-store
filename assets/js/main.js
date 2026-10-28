@@ -90,29 +90,41 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* Inquiry / contact form submission (static site: no backend).
-     Shows an on-page confirmation and builds a mailto link with the details. */
+  /* Inquiry / contact form submission via Formspree.
+     If the send fails, falls back to a mailto link with the details. */
+  var FORMSPREE = 'https://formspree.io/f/mvkkrndd';
   var forms = document.querySelectorAll('form[data-static-form]');
   forms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var data = new FormData(form);
-      var lines = [];
-      data.forEach(function (value, key) {
-        if (value) lines.push(key + ': ' + value);
-      });
-      var to = form.getAttribute('data-to') || '';
-      var subject = encodeURIComponent(form.getAttribute('data-subject') || 'New inquiry from LuxuryKnickKnacks.com');
-      var body = encodeURIComponent(lines.join('\n'));
-      var mailtoLink = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+      var subjectText = form.getAttribute('data-subject') || 'New inquiry from luxuryknicknack.com';
+      data.append('_subject', subjectText);
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
-      form.style.display = 'none';
-      var success = form.parentElement.querySelector('.form-success');
-      if (success) {
+      function showSuccess(fallback) {
+        form.style.display = 'none';
+        var success = form.parentElement.querySelector('.form-success');
+        if (!success) { return; }
         success.classList.add('show');
         var mailBtn = success.querySelector('[data-mailto]');
-        if (mailBtn) { mailBtn.setAttribute('href', mailtoLink); }
+        if (fallback) {
+          var lines = [];
+          data.forEach(function (value, key) { if (value && key.charAt(0) !== '_') lines.push(key + ': ' + value); });
+          var to = form.getAttribute('data-to') || '';
+          var link = 'mailto:' + to + '?subject=' + encodeURIComponent(subjectText) + '&body=' + encodeURIComponent(lines.join('\n'));
+          if (mailBtn) { mailBtn.setAttribute('href', link); mailBtn.style.display = ''; }
+          var msg = success.querySelector('[data-msg]');
+          if (msg) { msg.textContent = 'We could not send this automatically. Click below to send it through your email app instead.'; }
+        } else if (mailBtn) {
+          mailBtn.style.display = 'none';
+        }
       }
+
+      fetch(FORMSPREE, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function (r) { showSuccess(!r.ok); })
+        .catch(function () { showSuccess(true); });
     });
   });
 
