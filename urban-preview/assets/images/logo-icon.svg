@@ -1,0 +1,9 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style><![CDATA[
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+    .mono { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; }
+  ]]></style>
+  <circle cx="100" cy="100" r="98" fill="#111010"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="#f7f4f0" stroke-width="1"/>
+  <text x="100" y="122" text-anchor="middle" class="mono" font-size="66" fill="#f7f4f0">LK</text>
+</svg>
