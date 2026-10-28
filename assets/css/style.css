@@ -205,6 +205,8 @@ p { margin: 0 0 1em; }
   gap: 8px;
   text-shadow: 3px 3px 0 var(--pink);
   line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .logo-bow {
   width: 30px; height: 20px;
@@ -213,14 +215,15 @@ p { margin: 0 0 1em; }
   color: var(--yellow);
   overflow: visible;
 }
-.nav-links { display: flex; gap: 8px; }
+.nav-links { display: flex; gap: 2px; flex-wrap: nowrap; }
 .nav-links a {
   position: relative;
   display: block;
-  padding: 8px 11px;
+  padding: 8px 9px;
+  white-space: nowrap;
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: .76rem;
+  font-size: .74rem;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--white);
@@ -236,7 +239,7 @@ p { margin: 0 0 1em; }
 .nav-toggle span { width: 24px; height: 3px; background: var(--black); }
 .mobile-panel { display: none; }
 
-@media (max-width: 960px) {
+@media (max-width: 1120px) {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
   .logo { font-size: 1.35rem; }
