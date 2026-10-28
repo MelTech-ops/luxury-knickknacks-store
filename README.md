@@ -1,6 +1,6 @@
-# Luxury Knickknacks — Online Store
+# Luxury Knicknack — Online Store
 
-Custom-coded storefront for Luxury Knickknacks LLC, built on plain HTML/CSS/JS with Shopify's Storefront API powering the cart, checkout, customer accounts, and order history.
+Custom-coded storefront for Luxury Knicknack LLC, built on plain HTML/CSS/JS with Shopify's Storefront API powering the cart, checkout, customer accounts, and order history.
 
 ## Structure
 - `index.html`, `shop.html`, `custom-inquiry.html`, `social.html`, `contact.html` — site pages
